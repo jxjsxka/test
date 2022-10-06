@@ -43,27 +43,6 @@ def get_words():
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
 
-def translate(query):
-  #百度翻译的网址
-  url = "https://fanyi.baidu.com/transapi"
-  #构建头部，构建form表单数据发送post请求
-  headers = {"User-Agent": "Mozilla/5.0 (Linux; Android    6.0; Nexus 5 Build/MRA58N)AppleWebKit/537.36 (KHTML, like Gecko)  Chrome/72.0.3626.121   Mobile Safari/537.36"}
-  data = {
-    "from": "zh",
-    "to": "en",
-    "query": query,
-    "transtype": "realtime",
-    "simple_means_flag": "3",
-    "sign": "198772.518981",
-    "token": "a2618f73c47d96db078aae0c6672e7e3"
-  }
-  response = requests.post(url = url, data = data, headers = headers)
-  html = response.content.decode()
-  #得到的html是json文件格式的内容，所以之后用json提取数据
-  html = json.loads(html)
-  rep = html["data"][0]["dst"]
-  return rep
-
 client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
@@ -78,7 +57,6 @@ data = {
   "love_days":{"value":get_count(), "color":get_random_color()},
   "birthday_left":{"value":get_birthday(), "color":get_random_color()},
   "words":{"value":words1, "color":get_random_color()},
-  # "words2":{"value":translate(words1), "color":get_random_color()}
 }
 res = wm.send_template(user_id, template_id, data)
 print(res)
