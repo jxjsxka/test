@@ -51,13 +51,22 @@ wm = WeChatMessage(client)
 wea, temperature, min_temperature, max_temperature = get_weather()
 words1 = get_words()
 data = {
-  "weather":{"value":wea, "color":get_random_color()},
-  "temperature":{"value":temperature, "color":get_random_color()},
-  "min_temperature":{"value":min_temperature, "color":get_random_color()},
-  "max_temperature":{"value":max_temperature, "color":get_random_color()},
-  "love_days":{"value":get_count(), "color":get_random_color()},
-  "birthday_left":{"value":get_birthday(), "color":get_random_color()},
-  "words":{"value":words1, "color":get_random_color()}
+  "weather":{"value":wea, "color":0xFF0000},
+  "temperature":{"value":temperature, "color":0xEEEE00},
+  "min_temperature":{"value":min_temperature, "color":0x9BCD9B},
+  "max_temperature":{"value":max_temperature, "color":0xEEB422},
+  "love_days":{"value":get_count(), "color":0x87CEFA},
+  "birthday_left":{"value":get_birthday(), "color":0xCDBA96},
+  "words":{"value":words1, "color":0x912CEE}
 }
+# data = {
+#   "weather":{"value":wea, "color":},
+#   "temperature":{"value":temperature, "color":get_random_color()},
+#   "min_temperature":{"value":min_temperature, "color":get_random_color()},
+#   "max_temperature":{"value":max_temperature, "color":get_random_color()},
+#   "love_days":{"value":get_count(), "color":get_random_color()},
+#   "birthday_left":{"value":get_birthday(), "color":get_random_color()},
+#   "words":{"value":words1, "color":get_random_color()}
+# }
 res = wm.send_template(user_id, template_id, data)
 print(res)
