@@ -5,7 +5,6 @@ from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import requests
 import os
 import random
-import json
 
 today = datetime.now()
 start_date = os.environ['START_DATE']
@@ -47,7 +46,6 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature, min_temperature, max_temperature = get_weather()
-words1 = get_words()
 data = {
   "weather":{"value":wea, "color":get_random_color()},
   "temperature":{"value":temperature, "color":get_random_color()},
@@ -55,7 +53,7 @@ data = {
   "max_temperature":{"value":max_temperature, "color":get_random_color()},
   "love_days":{"value":get_count(), "color":get_random_color()},
   "birthday_left":{"value":get_birthday(), "color":get_random_color()},
-  "words":{"value":words1, "color":get_random_color()},
+  "words":{"value":get_words(), "color":get_random_color()},
 }
 # data = {
 #   "weather":{"value":wea, "color":},
