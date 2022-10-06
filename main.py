@@ -47,6 +47,7 @@ client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 wea, temperature, min_temperature, max_temperature = get_weather()
 data = {
+  "city":{"value":"有你的地方", "color":get_random_color()},
   "weather":{"value":wea, "color":get_random_color()},
   "temperature":{"value":temperature, "color":get_random_color()},
   "min_temperature":{"value":min_temperature, "color":get_random_color()},
