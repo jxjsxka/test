@@ -72,8 +72,11 @@ data = {
   "words":{"value":get_words(), "color":get_random_color()}
 }
 
-res = wm.send_template(user_id, template_id, data)
-print(res)
+for item in user_id:
+  wm.send_template(item, template_id, data)
+  
+# res = wm.send_template(user_id, template_id, data)
+# print(res)
 
 
 
