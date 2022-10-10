@@ -73,11 +73,8 @@ data = {
 }
 
 user_list = list(user_id.split(', '))
-for item in user_list:
-  wm.send_template(item, template_id, data)
-  
-# res = wm.send_template(user_id, template_id, data)
-# print(res)
+res = wm.send_template(user_list, template_id, data)
+print(res)
 
 
 
