@@ -72,8 +72,8 @@ data = {
   "words":{"value":get_words(), "color":get_random_color()}
 }
 
-user_list = list(user_id.split(', '))
-res = wm.send_template(user_list, template_id, data)
+# user_list = list(user_id.split(', '))
+res = wm.send_template(user_id, template_id, data)
 print(res)
 
 
