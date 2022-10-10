@@ -54,9 +54,9 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature, min_temperature, max_temperature = get_weather()
-min_to_max = min_temperature + "度 ~ " + max_temperature + "度"
+min_to_max = str(min_temperature) + "° ~ " + str(max_temperature) + "°"
 tomorrow_wea, tomorrow_min_temperature, tomorrow_max_temperature = get_tomorrow_weather()
-tomorrow_min_to_max = tomorrow_min_temperature + "度 ~ " + tomorrow_max_temperature + "度"
+tomorrow_min_to_max = str(tomorrow_min_temperature) + "° ~ " + str(tomorrow_max_temperature) + "°"
 data = {
   "city":{"value":"有你的地方", "color":get_random_color()},
   # 今日天气
